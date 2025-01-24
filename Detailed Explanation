@@ -1,0 +1,32 @@
+## Steps to Deploy
+
+1. Provision Infrastructure with Terraform and apply the commands to create the resources
+
+terraform init
+terraform apply
+
+2. Build and Push Docker Image , actually in our organisation we use JFROG 
+
+docker build -t <your-dockerhub-username>/static-web-app:latest .
+docker push <your-dockerhub-username>/static-web-app:latest
+
+2. Provision Infrastructure with Terraform
+
+cd terraform
+terraform init
+terraform apply
+
+3. Deploy Application to Kubernetes Cluster GKE
+
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+
+#if you get any issues while deploying,first check the image whether it is pulling or not
+#Next if everything is good means about image means and still getting error means .
+# DO describe and check the logs command , maximum time we get answers while doing this
+# if service is not working means , check the svc and get the endpoints , whether it is going in crt way or not
+
+5. Access the Application
+
+kubectl get svc static-web-service
+	Access the web app in your browser using the external IP.

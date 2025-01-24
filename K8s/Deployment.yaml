@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static-web-app
+  labels:
+    app: static-web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: static-web
+  template:
+    metadata:
+      labels:
+        app: static-web
+    spec:
+      containers:
+      - name: static-web-container
+        image: DIT #Here we use git hun commit iD as a Docker image tag which will be replaced,this method we use in sharedlib in our project
+        ports:
+        - containerPort: 80
