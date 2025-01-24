@@ -21,10 +21,11 @@ terraform apply
 kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 
-#if you get any issues while deploying,first check the image whether it is pulling or not
-#Next if everything is good means about image means and still getting error means .
-# DO describe and check the logs command , maximum time we get answers while doing this
-# if service is not working means , check the svc and get the endpoints , whether it is going in crt way or not
+1)if you get any issues while deploying,first check the image whether it is pulling or not
+2)Next if everything is good means about image means and still getting error means .
+3)DO describe and check the logs command , maximum time we get answers while doing this
+4)if service is not working means , check the svc and get the endpoints , whether it is going in crt way or not
+5)If a node has a taint means, pods won't schedule unless we tolerate the taint
 
 5. Access the Application
 
